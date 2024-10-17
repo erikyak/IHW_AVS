@@ -23,10 +23,10 @@ tests_setup:
 	sw s1 8(sp)
 	sw s0 4(sp)
 	sw ra (sp)
-	mv s2 a2			# original array(array_b)
-	la s0 test_n			# test n values
-	la s1 test_a			# test a arrays
-	la s3 correct_answers		# test correct answers
+	mv s2 a2			# Original array(array_b)
+	la s0 test_n			# Test n values
+	la s1 test_a			# Test a arrays
+	la s3 correct_answers		# Test correct answers
 	la s4 test_n_end
 tests:
 	lw a3 (s0)
@@ -34,14 +34,14 @@ tests:
 	la a0 entered_text
 	li a7 4
 	ecall
-	bnez a3 grater_than_0_test	# zero check
+	bnez a3 grater_than_0_test	# Zero check
 	li a7 11
 	li a0 '\n'
 	ecall
 	la a0 calculated_text
 	li a7 4
 	ecall
-	zero_case ()			# pass nothing, nothing return(just print)
+	zero_case ()			# Pass nothing, nothing return(just print)
 	li a7 11
 	li a0 '\n'
 	ecall
@@ -50,19 +50,19 @@ tests:
 	la a1 A
 	mv a0 s1
 	mv a2 a3
-	print_arr_setup(a0 a2 a1)	# pass test_n, test_a(they different for each iterations), array label (A), return nothing
+	print_arr_setup(a0 a2 a1)	# Pass test_n, test_a(they different for each iterations), array label (A), return nothing
 	mv a1 s1
 	mv a2 a3
-	setup_array_b (s2 a1 a2)	# pass second array(array_b), first array(test_a)(different for each iterations), n, return nothing
+	setup_array_b (s2 a1 a2)	# Pass second array(array_b), first array(test_a)(different for each iterations), n, return nothing
 	la a0 calculated_text
 	li a7 4
 	ecall
 	la a1 B
 	mv a2 a3
-	print_arr_setup (s2 a2 a1)	# pass test_n(different for each iterations), array(array_b), array label (B), return nothing
+	print_arr_setup (s2 a2 a1)	# Pass test_n(different for each iterations), array(array_b), array label (B), return nothing
 	return_test:
 	mv a1 s3
-	correct_answer_print (a1)	# pass correct_answer(different for each iterations), return nothing
+	correct_answer_print (a1)	# Pass correct_answer(different for each iterations), return new link to correct answers
 	mv s3 a1
 	li a7 11
 	li a0 '\n'

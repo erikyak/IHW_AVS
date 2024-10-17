@@ -15,26 +15,26 @@
 	
 	correct_answer_text: .asciz "Correct answer:    "
 
-.macro zero_case ()			# pass nothing, nothing return(just print)
+.macro zero_case ()			# Pass nothing, nothing return(just print)
 	la a0 zero_case_text
 	li a7 4
 	ecall
 .end_macro 
 
 
-.macro input_n ()			# pass nothing, return a0
+.macro input_n ()			# Pass nothing, return a0
 	li t1 11
 	la a0 read_n
 	li a7 4
 	ecall
-	more_than_10:
+	more_than_10:			# Check if n is grater than 10
 	li a7 5
 	ecall
 	blt a0 t1 less_than_10
 	li a7 4
 	la a0 n_more_than_10
 	ecall
-	j more_than_10
+	j more_than_10			# Check if n is less than 0
 	less_than_10:
 	bgez a0 more_than_0
 	li a7 4
@@ -45,7 +45,7 @@
 .end_macro 
 
 
-.macro setup_array_a (%n %array_a_link) # pass n, filled array, return nothing
+.macro setup_array_a (%n %array_a_link) # Pass n, filled array, return nothing
 	addi sp sp -12
 	sw s0 8(sp)
 	sw s1 4(sp)
@@ -65,7 +65,7 @@ create_array_a:
 	ecall
 	li a7 5
 	ecall
-	sw a0 (s2)
+	sw a0 (s2)			# Save a0 in filled array
 	addi s2 s2 4
 	addi s1 s1 1
 	ble s1 s0 create_array_a
@@ -77,7 +77,7 @@ done_array_a:
 .end_macro 
 
 
-.macro setup_array_b (%array_b_link %array_a_link %n)	# pass result array, original array, n, return nothing
+.macro setup_array_b (%array_b_link %array_a_link %n)	# Pass result array, original array, n, return nothing
 	addi sp sp -4
 	sw s0 (sp)
 	mv t0 %array_b_link
@@ -89,7 +89,7 @@ create_array_b:
 	li t3 1
 	li t4 1
 	lw a0 (t5)
-	loop:
+	loop:						# Calculate factorial
 		addi t3 t3 -1
 		inner_loop:
 			bltz t3 end_inner_loop
@@ -109,7 +109,7 @@ overflow:
 	beq a0 t4 without_overflow
 	li t2 0
 without_overflow:
-	sw t2 (t0)
+	sw t2 (t0)					# Save a0 in result array
 	addi t0 t0 4
 	addi t5 t5 4
 	addi s0 s0 -1
@@ -154,22 +154,22 @@ done_print:
 .end_macro 
 
 
-.macro correct_answer_print (%answer_link) # pass array with correct answers(prints only one string), return nothing
+.macro correct_answer_print (%answer_link) # Pass array with correct answers(prints only one string), return new link to correct answers
 	li a7 4
 	la a0 correct_answer_text
 	ecall
 	mv a1 %answer_link
 	print_string:
-    	lb a0, (a1)
-    	beqz a0, end_print
-    	li a7, 11
-    	ecall
-    	addi a1, a1, 1
-    	j print_string
+    		lb a0, (a1)
+    		beqz a0, end_print
+    		li a7, 11
+    		ecall
+    		addi a1, a1, 1
+    		j print_string
 	end_print:
 	addi a1, a1, 1
 	li a7 11
 	li a0 '\n'
 	ecall
-	mv %answer_link a1
+	mv %answer_link a1		# Save new link in a1
 .end_macro 
