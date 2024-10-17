@@ -6,7 +6,7 @@
 <img width="1019" alt="Снимок экрана 2024-10-17 в 05 37 42" src="https://github.com/user-attachments/assets/f92eb802-fc0a-48c3-bd3a-1648e93d3325">
 <img width="1022" alt="Снимок экрана 2024-10-17 в 05 38 01" src="https://github.com/user-attachments/assets/ff405408-09a1-4785-b370-1d24c054dbd3">
 
-## test.s
+## tests.s
 <img width="1020" alt="Снимок экрана 2024-10-17 в 05 38 40" src="https://github.com/user-attachments/assets/566d8dcb-f283-4407-b4c5-1429e8cf88f3">
 <img width="1019" alt="Снимок экрана 2024-10-17 в 05 39 00" src="https://github.com/user-attachments/assets/d7960576-c58f-4b58-a5c4-0c14c2a7e6dc">
 <img width="1019" alt="Снимок экрана 2024-10-17 в 05 39 17" src="https://github.com/user-attachments/assets/bba05bbe-5187-4caa-a1d5-f9f341d0c87c">
@@ -19,4 +19,14 @@
 <img width="1018" alt="Снимок экрана 2024-10-17 в 05 41 24" src="https://github.com/user-attachments/assets/744cab81-e665-441b-9557-3224ea7fa13d">
 
 # Отчет
+
+## На 4-5 баллов
+//TODO
+## На 6-7 баллов
+//TODO
+## На 8 баллов
+//TODO
+## На 9 баллов
+//TODO
+## На 10 баллов
 //TODO
